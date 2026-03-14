@@ -1,0 +1,145 @@
+.contact_wrapper svg {
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.contact_wrapper h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.contact_wrapper > p {
+  font-size: 1.1em;
+  color: #d0d0d0;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(80, 0, 202, 0.1) 0%, rgba(80, 0, 202, 0.05) 100%);
+  border: 1px solid rgba(80, 0, 202, 0.2);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: linear-gradient(135deg, rgba(80, 0, 202, 0.15) 0%, rgba(80, 0, 202, 0.1) 100%);
+    border-color: #5000ca;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(80, 0, 202, 0.2);
+  }
+
+  svg {
+    color: #5000ca;
+    font-size: 2.5em;
+    min-width: 50px;
+  }
+
+  h3 {
+    color: white;
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+  }
+
+  p {
+    color: #b0b0b0;
+    margin: 0;
+    font-size: 0.9em;
+  }
+}
+
+.contact-form-section {
+  h2 {
+    font-size: 1.8em;
+    color: white;
+    margin-bottom: 25px;
+  }
+}
+
+.contact-form {
+  padding-top: 20px;
+
+  button {
+    float: right;
+    background-color: #5000ca;
+    color: white;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #6b1ef0;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  fieldset {
+    background-color: white;
+  }
+}
+
+label {
+  font-size: 1.2rem;
+  font-family: 'DomaineDispNar-Medium', sans-serif;
+}
+
+.form-flex {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 15px;
+}
+
+.form-flex .MuiFormControl-root {
+  width: 100%;
+}
+
+form {
+  width: 100% !important;
+}
+
+.body-form {
+  width: 100% !important;
+  margin-bottom: 15px !important;
+}
+
+@media screen {
+  @media (max-width: 768px) {
+    .contact-methods {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .contact-method {
+      padding: 15px;
+
+      svg {
+        font-size: 2em;
+      }
+    }
+
+    .contact_wrapper h1 {
+      font-size: 2em;
+    }
+
+    .contact-form-section h2 {
+      font-size: 1.5em;
+    }
+  }
+}

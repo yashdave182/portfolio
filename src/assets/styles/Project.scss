@@ -1,0 +1,226 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5% 10%;
+    text-align: left;
+}
+
+.projects-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    font-family: "Lato", sans-serif;
+
+    &:hover {
+        background-color: rgba(80, 0, 202, 0.2);
+        border-color: #5000ca;
+    }
+
+    &.active {
+        background-color: #5000ca;
+        color: white;
+        border-color: #5000ca;
+    }
+}
+
+.projects-container .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+}
+
+.projects-container .projects-grid .project {
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background: rgba(80, 0, 202, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(80, 0, 202, 0.3);
+    }
+}
+
+.project-image-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 200px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover img {
+        transform: scale(1.08);
+    }
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(80, 0, 202, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+.project-image-wrapper:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-link {
+    padding: 10px 20px;
+    background-color: white;
+    color: #5000ca;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+    }
+}
+
+.project h2 {
+    font-size: 1.5em;
+    margin: 15px 0 10px 0;
+    color: white;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+        color: #5000ca;
+        text-decoration: underline;
+    }
+}
+
+.project p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 10px;
+
+    &.problem {
+        background: rgba(80, 0, 202, 0.1);
+        padding: 10px 12px;
+        border-left: 3px solid #5000ca;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+
+        strong {
+            color: #5000ca;
+        }
+    }
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tech-badge {
+    display: inline-block;
+    background-color: #5000ca;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.zoom {
+    border-radius: 5px;
+    transition: transform 0.2s;
+    margin: 0 auto;
+}
+
+.no-projects {
+    text-align: center;
+    padding: 40px 20px;
+    color: #b0b0b0;
+    font-size: 1.2em;
+}
+
+@media screen {
+    @media (max-width: 1024px) {
+        .projects-container .projects-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .projects-container {
+            display: block;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .projects-container h1 {
+            font-size: 2em;
+        }
+
+        .filter-bar {
+            justify-content: center;
+        }
+
+        .projects-container .projects-grid {
+            display: block;
+        }
+
+        .projects-container .projects-grid .project {
+            padding-bottom: 5%;
+            margin-bottom: 20px;
+        }
+
+        .project-image-wrapper {
+            height: 150px;
+        }
+
+        .project h2 {
+            font-size: 1.3em;
+        }
+    }
+}
