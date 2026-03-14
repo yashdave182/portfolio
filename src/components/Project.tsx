@@ -16,15 +16,16 @@ interface ProjectType {
 const projects: ProjectType[] = [
   {
     id: 1,
-    title: "AI Disease Diagnosis App",
+    title: "AI Disease Diagnosis Website",
     description:
-      "Intelligent mobile app for diagnosing 6 different diseases using ML models",
+      "Intelligent web application for diagnosing 6 different diseases using ML models",
     problem:
       "Healthcare accessibility - enabling quick disease screening without expert consultation",
-    techStack: ["React Native", "Python", "TensorFlow", "Mobile"],
+    techStack: ["React", "Python", "TensorFlow", "Web"],
     category: "hackathon",
     image: require("../assets/images/mock01.png"),
-    githubLink: "https://github.com/yashdave182",
+    githubLink: "https://github.com/yashdave182/carescan",
+    liveLink: "https://carescan.vercel.app/",
   },
   {
     id: 2,
