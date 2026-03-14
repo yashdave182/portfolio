@@ -39,19 +39,7 @@ const projects: ProjectType[] = [
     image: require("../assets/images/mock02.png"),
     githubLink: "https://github.com/yashdave182",
   },
-  {
-    id: 3,
-    title: "Skin Disease Detection Website",
-    description:
-      "Web-based image classification system for identifying skin diseases",
-    problem:
-      "Provide dermatological assistance through computer vision without doctor consultation",
-    techStack: ["React", "Python", "TensorFlow", "Image Classification"],
-    category: "web",
-    image: require("../assets/images/mock03.png"),
-    githubLink: "https://github.com/yashdave182",
-    liveLink: "https://example.com",
-  },
+
   {
     id: 4,
     title: "AI Job Recommendation System",
