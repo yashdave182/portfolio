@@ -31,8 +31,8 @@ function App() {
         <Timeline />
         <Project />
         <Achievements />
-        <Contact />
       </FadeIn>
+      <Contact />
       <Footer />
     </div>
   );
