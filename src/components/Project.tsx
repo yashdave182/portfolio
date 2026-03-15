@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/styles/Project.scss";
 
 interface ProjectType {
@@ -69,42 +69,13 @@ const projects: ProjectType[] = [
 ];
 
 function Project() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-
-  const categories = [
-    { id: "all", label: "All" },
-    { id: "mobile", label: "Mobile" },
-    { id: "ai-ml", label: "AI-ML" },
-    { id: "web", label: "Web" },
-    { id: "hackathon", label: "Hackathon" },
-    { id: "iot", label: "IoT" },
-  ];
-
-  const filteredProjects =
-    selectedCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="projects-container" id="projects">
       <h1>Projects</h1>
 
-      <div className="filter-bar">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            className={`filter-btn ${
-              selectedCategory === cat.id ? "active" : ""
-            }`}
-            onClick={() => setSelectedCategory(cat.id)}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
       <div className="projects-grid">
-        {filteredProjects.map((project) => (
+        {projects.map((project) => (
           <div className="project" key={project.id}>
             <div className="project-image-wrapper">
               <img
@@ -153,12 +124,6 @@ function Project() {
           </div>
         ))}
       </div>
-
-      {filteredProjects.length === 0 && (
-        <div className="no-projects">
-          <p>No projects found in this category.</p>
-        </div>
-      )}
     </div>
   );
 }
