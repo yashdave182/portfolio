@@ -63,7 +63,7 @@ const projects: ProjectType[] = [
     techStack: ["React Native", "IoT", "Python", "Hardware Integration"],
     category: "iot",
     image: require("../assets/images/mock05.png"),
-    githubLink: "https://github.com/yashdave182",
+    githubLink: "https://github.com/yashdave182/FarmFlow",
   },
 
 ];
