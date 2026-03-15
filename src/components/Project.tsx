@@ -50,7 +50,8 @@ const projects: ProjectType[] = [
     techStack: ["Python", "Pandas", "Machine Learning", "Data Analysis"],
     category: "ai-ml",
     image: require("../assets/images/mock04.png"),
-    githubLink: "https://github.com/yashdave182",
+    githubLink: "https://github.com/yashdave182/skillMatch",
+    liveLink: "https://skillmatch-cu.streamlit.app/",
   },
   {
     id: 5,
