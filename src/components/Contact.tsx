@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import Alert from "@mui/material/Alert";
 
 function Contact() {
   const [name, setName] = useState<string>("");
@@ -17,37 +18,54 @@ function Contact() {
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
+  const [result, setResult] = useState<string>("");
+  const [isSending, setIsSending] = useState<boolean>(false);
+
   const form = useRef();
 
-  const sendEmail = (e: any) => {
+  const sendEmail = async (e: any) => {
     e.preventDefault();
 
-    setNameError(name === "");
-    setEmailError(email === "");
-    setMessageError(message === "");
+    const isNameEmpty = name === "";
+    const isEmailEmpty = email === "";
+    const isMessageEmpty = message === "";
 
-    /* Uncomment below if you want to enable the emailJS */
+    setNameError(isNameEmpty);
+    setEmailError(isEmailEmpty);
+    setMessageError(isMessageEmpty);
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+    if (!isNameEmpty && !isEmailEmpty && !isMessageEmpty) {
+      setIsSending(true);
+      setResult("");
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+      const formData = new FormData();
+      formData.append("access_key", "eb35dadc-2e7b-439d-b9e3-eac39e01f7f3");
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          setResult("Success! Message sent successfully.");
+          setName("");
+          setEmail("");
+          setMessage("");
+        } else {
+          setResult("Error: " + (data.message || "Failed to send message. Please try again later."));
+        }
+      } catch (error) {
+        setResult("Error: Failed to send message. Please check your internet connection.");
+      } finally {
+        setIsSending(false);
+      }
+    }
   };
 
   return (
@@ -150,9 +168,18 @@ function Contact() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 onClick={sendEmail}
+                disabled={isSending}
               >
-                Send
+                {isSending ? "Sending..." : "Send"}
               </Button>
+              {result && (
+                <Alert 
+                  severity={result.startsWith("Success") ? "success" : "error"} 
+                  sx={{ mt: 2 }}
+                >
+                  {result}
+                </Alert>
+              )}
             </Box>
           </div>
         </div>
