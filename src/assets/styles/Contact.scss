@@ -93,6 +93,11 @@
   fieldset {
     background-color: white;
   }
+
+  /* Fix for text being invisible when typing */
+  .MuiInputBase-input {
+    color: #333 !important;
+  }
 }
 
 label {
